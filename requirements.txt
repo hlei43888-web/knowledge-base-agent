@@ -1,0 +1,14 @@
+fastapi
+uvicorn
+openai
+chromadb
+python-multipart
+python-docx
+PyPDF2
+httpx
+beautifulsoup4
+tiktoken
+tenacity
+pydantic
+python-dotenv
+requests

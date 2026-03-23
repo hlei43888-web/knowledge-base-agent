@@ -1,0 +1,7 @@
+__pycache__/
+*.pyc
+*.db
+.env
+data/
+eval/report_*.md
+.venv/
