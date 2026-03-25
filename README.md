@@ -14,7 +14,7 @@
 | 日志存储 | SQLite |
 | 文档解析 | PyPDF2 + python-docx |
 | 网页爬取 | httpx + requests（双层降级） + BeautifulSoup |
-| 部署 | Railway |
+| 部署 | Render |
 
 ## 系统架构
 
@@ -158,12 +158,12 @@ python eval/evaluate.py status       # 查看评测集状态
 | 降级触发率 | fallback=true 的请求占比 |
 | 平均延迟 | 端到端响应时间（ms） |
 
-## 部署到 Railway
+## 部署到 Render
 
 1. 推送代码到 GitHub
-2. 在 [Railway](https://railway.app) 创建项目，连接 GitHub 仓库
+2. 在 [Render](https://render.com) 创建 Web Service，连接 GitHub 仓库
 3. 设置环境变量 `LLM_API_KEY`（以及可选的 `LLM_BASE_URL`、`LLM_MODEL`）
-4. Railway 自动检测 `Procfile` 并部署
+4. Render 自动检测 `render.yaml` 或手动配置启动命令进行部署
 
 ## 项目结构
 
@@ -189,7 +189,32 @@ knowledge-base-agent/
 ├── eval/
 │   └── evaluate.py             # 评测脚本（导入/标注/自动评分/生成报告）
 ├── requirements.txt
-├── Procfile                    # Railway 部署配置
+├── Procfile                    # Render 部署配置
 ├── .env.example                # 环境变量示例
 └── .gitignore
 ```
+演示效果：（本地或者公网：https://knowledge-base-agent-1.onrender.com/docs，使用免费版的render,每次使用前需要先重启render）
+1.进入界面（我使用的公网进行演示）：
+
+![alt text](image_show/image.png)
+
+2.导入word/pdf文档:
+
+
+![alt text](image_show/image-1.png)
+
+3.发送问题请求：
+
+![alt text](image_show/image-2.png)
+
+4.响应：
+
+![alt text](image_show/image-3.png)
+
+5.查看单条trace记录，输入request_id
+
+![alt text](image_show/image-4.png)
+
+
+
+
